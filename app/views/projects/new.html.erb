@@ -1,0 +1,37 @@
+<h1 class="text-center">Start a new project</h1>
+<br>
+<div class='row'>
+    <div class="col-md-6 offset-md-3">
+        <%= form_with(model: @project, local: true) do |f| %>
+            <div class="form-group">
+                <%= f.label :name %> 
+                <%= f.text_field :name, class:'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :description %> 
+                <%= f.text_field :description, class:'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :start_date %> 
+                <%= f.date_field :start_date, class:'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :end_date %> 
+                <%= f.date_field :end_date, class:'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :state %> 
+                <%= f.input :state, Project.states.keys.to_a %>
+            </div> 
+            <div class="offset-md-5">
+                <%= f.submit class: '"btn btn-secondary"'%> 
+            </div>    
+        <% end %>
+    </div>
+</div>
+
+<div class="container text-right my-3">
+    <button type="button" class="btn btn-outline-primary">   
+        <%= link_to 'Todos los proyectos', root_path %>
+    </button>
+</div>    

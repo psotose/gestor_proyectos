@@ -1,0 +1,36 @@
+<div class="container text-right my-3">
+    <button type="button" class="btn btn-outline-primary">
+        <%= link_to 'Iniciar  sesión', projects_new_path %>
+    </button>
+</div>
+
+<h1 class="text-center"> Projects </h1>
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Start_date</th>
+            <th scope="col">End_date</th>
+            <th scope="col">State</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @projects.each do |project| %>
+                <tr>
+                  <td><%= project.name %></td>
+                  <td><%= project.description %></td>
+                  <td><%= project.start_date %></td>
+                  <td><%= project.end_date %></td>
+                  <td><%= project.state %></td>
+                </tr>
+            <%end%>
+        </tbody>
+    </table>
+</div>
+<div class="container text-right my-3">
+    <button type="button" class="btn btn-outline-primary">
+        <%= link_to 'Crea un nuevo proyecto', projects_new_path %>
+    </button>
+</div>
