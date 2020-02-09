@@ -20,9 +20,9 @@
                 <%= f.date_field :end_date, class:'form-control' %>
             </div>
             <div class="form-group">
-                <%= f.label :state %> 
-                <%= f.input :state, Project.states.keys.to_a %>
-            </div> 
+                <%= f.label :states %> 
+                <%= f.select :states, options_for_select(Project.states.map{ |k,v| k }), class:'form-control'  %>
+            </div>
             <div class="offset-md-5">
                 <%= f.submit class: '"btn btn-secondary"'%> 
             </div>    

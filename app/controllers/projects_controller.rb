@@ -1,13 +1,14 @@
 class ProjectsController < ApplicationController
-  http_basic_authenticate_with name: "desafiovamoscontodo", password: "XAHTJEAS23123%23", only: [:create ]
+  http_basic_authenticate_with name: "desafiovamoscontodo", password: "XAHTJEAS23123%23", only: [:new ]
   def index
-    @projects = Project.all
+    @q = Project.ransack(params[:q])
+    @projects = @q.result(distinct: true)
   end
 
   def new
     @project = Project.new
   end  
-  
+
   def create
     @project = Project.new(project_params)
     
