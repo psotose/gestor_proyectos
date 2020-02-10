@@ -1,22 +1,20 @@
-<div class="container text-right my-3">
-    <button type="button" class="btn btn-outline-primary">
-        <%= link_to 'Iniciar  sesión', projects_new_path %>
-    </button>
-</div>
-
 <h1 class="text-center"> Projects </h1>
 
-<div>
-    <%= search_form_for @q do |f|%>
-        <div class="form-group">
-        <%= f.label :state, "State" %>
-        <%= f.select :state, option_for_select(Project.states, @q.state), {}, {class: "form-control"} %>
-        </div> 
-        <%= f.submit "Search", class: "btn btn-outline-primary" %>
-    <% end  %>     
+<div class="row">
+    <div class="col-sm-2 my-4">
+        <%= search_form_for @q do |f|%>
+            <div class="form-group">
+            <%= f.label :state_eq, "State" %>
+            <%= f.select :state_eq, options_for_select(Project.states, @q.state_eq), {}, {class: 'form-control'} %>
+            </div> 
+            <%= f.submit "Search", class: "btn btn-outline-primary" %>
+            <%= link_to "All", root_path, class: "btn btn-outline-primary"%>
+
+        <% end  %>    
+    </div> 
 </div>
  
-<div class="container">
+<div>
     <table class="table">
         <thead>
           <tr>
@@ -40,7 +38,7 @@
         </tbody>
     </table>
 </div>
-<div class="container text-right my-3">
+<div class="text-right my-3">
     <button type="button" class="btn btn-outline-primary">
         <%= link_to 'Crea un nuevo proyecto', projects_new_path %>
     </button>
